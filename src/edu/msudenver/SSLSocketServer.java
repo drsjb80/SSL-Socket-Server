@@ -10,7 +10,7 @@ import java.io.*;
  */
 
 
-public class Main {
+public class SSLSocketServer {
     public static void main(String[] args) {
 
         int intSSLport = 4443; // Port where the SSL Server needs to listen for new requests from the client
