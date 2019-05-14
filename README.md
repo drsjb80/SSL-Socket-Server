@@ -1,1 +1,1 @@
-```keytool -genkey -keyalg RSA -alias testkey -keystore testkeystore.ks```
+```keytool -genkey -keyalg RSA -alias testkey -keypass testpwd -keystore testkeystore.ks```
