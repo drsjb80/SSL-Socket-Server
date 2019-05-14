@@ -12,14 +12,12 @@ import java.io.*;
 
 public class SSLSocketServer {
     public static void main(String[] args) {
-
-        int intSSLport = 4443; // Port where the SSL Server needs to listen for new requests from the client
+        int intSSLport = 4443;
 
         System.setProperty("javax.net.ssl.keyStore","testkeystore.ks");
         System.setProperty("javax.net.ssl.keyStorePassword","testpwd");
 
         // System.setProperty("javax.net.debug","all");
-
 
         SSLServerSocketFactory sslServerSocketfactory = (SSLServerSocketFactory)SSLServerSocketFactory.getDefault();
         SSLServerSocket sslServerSocket;
@@ -37,8 +35,8 @@ public class SSLSocketServer {
             BufferedWriter out;
             BufferedReader in;
             try {
-                out = new BufferedWriter(new OutputStreamWriter(sslSocket.getOutputStream()));
                 in = new BufferedReader(new InputStreamReader(sslSocket.getInputStream()));
+                out = new BufferedWriter(new OutputStreamWriter(sslSocket.getOutputStream()));
             } catch (IOException e) {
                 e.printStackTrace();
                 break;
@@ -56,8 +54,8 @@ public class SSLSocketServer {
             }
 
             try {
-                out.close();
                 in.close();
+                out.close();
                 sslSocket.close();
                 sslServerSocket.close();
             } catch (IOException e) {
